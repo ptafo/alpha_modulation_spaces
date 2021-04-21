@@ -5,8 +5,6 @@ N = 200
 sig  = doppler(40,10,2,N)
 
 
-from DiscreteAlphaModulation import *
-
 N,eps,alp,fs,factor= 200,5,0.5,200,1
 sig  = doppler(40,10,2,N)
 atoms= atom_grid(N,eps,alp,fs,factor,0)
@@ -19,5 +17,3 @@ fo = frame_op(sig,F)
 
 plt.figure()
 plotlist(ao,atoms,fs/2)
-plt.figure()
-plt.savefig('test'+"1")
