@@ -1,3 +1,3 @@
 # ALPHA MODULATION SPACES
 
-please check playground for use
+please check playground.py
