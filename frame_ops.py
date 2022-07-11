@@ -93,3 +93,13 @@ def dual_frames_serial(frms, iters=None):
 #     print('done!')
 #
 #     return np.array(tmp)
+
+
+def frame_algorithm(coeffs, frms, iters=None,rel=1):
+
+    g = np.zeros(frms.shape[1])
+    for i in range(iters):
+        g = g + rel*(recon_op(coeffs-analysis_op(g,frms),frms))
+        g = g.real
+
+    return g
