@@ -58,7 +58,7 @@ plotlist(decomp,grid,fs/2)
 from scipy.sparse import linalg as LA
 #eigval = LA.eigvals(np.dot(frms.T,frms.conj()))
 S = np.dot(frms.T,frms.conj())
-eigW = LA.eigs(S,which='LM',return_eigenvectors=0,k=1)
+eigW = LA.eigs(S,which='LM',return_eigenvectors=0,k=1)   # real eigenvalue
 lmd = 2/(eigW.max().__abs__())
 fa = frame_algorithm(decomp,frms,200,lmd)
 plt.figure()
@@ -69,8 +69,8 @@ plt.plot(fa)
 
 #norm
 from numpy import linalg as npLA
-maxEig = (npLA.norm(frms.conj(),'fro')**2)#/min(frms.shape)
-lmd = 10/(maxEig)
+maxEig = (npLA.norm(frms.conj(),'fro')**2)#/min(frms.shape)  # tuneable parameter
+lmd = 1/(maxEig)
 fa = frame_algorithm(decomp,frms,100,lmd)
 plt.figure()
 plt.plot(sig)
